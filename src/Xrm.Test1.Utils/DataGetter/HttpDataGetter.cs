@@ -13,17 +13,18 @@ namespace Xrm.Test1.Utils.DataGetter
             var request = WebRequest.Create(source);
             var response = request.GetResponse();
             var stream = response.GetResponseStream();
-            _num++;
-            var file = new FileStream(string.Format("d:\\{0}.dump",_num), FileMode.OpenOrCreate);
+            return stream;
+            //_num++;
+            //var file = new FileStream(string.Format("d:\\{0}.dump",_num), FileMode.OpenOrCreate);
             
-            stream.CopyTo(file);
+            //stream.CopyTo(file);
 
-            file.Close();
-            stream.Close();
-            file = new FileStream(string.Format("d:\\{0}.dump", _num), FileMode.Open);
+            //file.Close();
+            //stream.Close();
+            //file = new FileStream(string.Format("d:\\{0}.dump", _num), FileMode.Open);
 
 
-            return file;
+            //return file;
         }
     }
 }

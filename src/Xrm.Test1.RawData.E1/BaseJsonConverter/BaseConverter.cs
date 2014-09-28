@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Proxies;
 using System.Runtime.Serialization.Json;
 using Xrm.Test1.RawData.E1.Common;
 using Xrm.Test1.RawDataCommon.DataModel;
@@ -13,20 +12,27 @@ namespace Xrm.Test1.RawData.E1.BaseJsonConverter
     {
         public IList<IResumeRaw> Convert(Stream stream)
         {
-            var tmp = new DataContractJsonSerializer(typeof(RootObject));
-            var tmpObj = tmp.ReadObject(stream)as RootObject;
-
-            if (tmpObj != null)
+            try
             {
-                var result = new List<IResumeRaw>();
-                foreach (var obj in tmpObj.resumes)
+                var tmp = new DataContractJsonSerializer(typeof(RootObject));
+                var tmpObj = tmp.ReadObject(stream)as RootObject;
+
+                if (tmpObj != null)
                 {
-                    result.Add(ConvertResume(obj));
+                    var result = new List<IResumeRaw>();
+                    foreach (var obj in tmpObj.resumes)
+                    {
+                        result.Add(ConvertResume(obj));
+                    }
+                    return result;
                 }
-                return result;
+            }
+            catch (Exception e)
+            {
+                // тут надо логировать, делаю плохо
             }
 
-            return null;
+            return new List<IResumeRaw>();
         }
 
         private IResumeRaw ConvertResume(Resume data)

@@ -83,7 +83,7 @@ namespace Xrm.Test1.WpfUi.Controls
         {
             get
             {
-                return "http://rabota.e1.ru/"+_resume.ResumeSourceInfo.Link;
+                return _resume.ResumeSourceInfo.Link;
             }
         }
 

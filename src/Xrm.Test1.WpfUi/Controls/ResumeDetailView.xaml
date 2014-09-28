@@ -113,7 +113,7 @@
                 </Expander>
 
                 <!--Рубрики-->
-                <Expander Grid.Row="7" Header="Резюме размащено в рубрике">
+                <Expander Grid.Row="7" Header="Резюме размещено в рубрике">
                     <Grid Background="GhostWhite">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>

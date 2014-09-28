@@ -26,14 +26,17 @@ namespace Xrm.Test1.RawData.E1
         private int _pos;
         private int _size=100;
 
+        private int _okCount = 0;
+
         public void Start()
         {
             _pos = 0;
+            _okCount = 0;
         }
 
         public IList<IResumeRaw> GetNextDataBlock()
         {
-            if (_pos >= 1000)
+            if (_okCount >= 1000)
             {
                 return null;
             }
@@ -41,6 +44,7 @@ namespace Xrm.Test1.RawData.E1
             var stream = _dataGetter.GetDataStream(_urlCreator.CreateUrl(_pos, _size));
             _pos += _size;
             var result = _converter.Convert(stream);
+            _okCount += result.Count;
             return result;
         }
     }
