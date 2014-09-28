@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA714841-820B-4ACC-BD7B-0B8CB04AE0B0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xrm.Test1.ConsoleTest</RootNamespace>
+    <AssemblyName>Xrm.Test1.ConsoleTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xrm.Test1.DataModel.SimpleFactory\Xrm.Test1.DataModel.SimpleFactory.csproj">
+      <Project>{37C3BD8C-3817-486B-9F99-90B895D699BA}</Project>
+      <Name>Xrm.Test1.DataModel.SimpleFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.DataModel\Xrm.Test1.DataModel.csproj">
+      <Project>{5B605ADD-7D83-4399-8B08-A5455416B4AA}</Project>
+      <Name>Xrm.Test1.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.DbRepository.MsAccess\Xrm.Test1.DbRepository.MsAccess.csproj">
+      <Project>{D87DC88A-56B0-4421-B3A9-489E58BE0E7F}</Project>
+      <Name>Xrm.Test1.DbRepository.MsAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.Merge.SimpleEngine\Xrm.Test1.Merge.SimpleEngine.csproj">
+      <Project>{0FB6CBAA-102C-4AA9-987D-1F1A1A733499}</Project>
+      <Name>Xrm.Test1.Merge.SimpleEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.MergeCommon\Xrm.Test1.MergeCommon.csproj">
+      <Project>{88fe7563-d224-472f-8540-24f297f2d6ab}</Project>
+      <Name>Xrm.Test1.MergeCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.RawData.E1\Xrm.Test1.RawData.E1.csproj">
+      <Project>{D61189C4-F256-447B-9230-BE2365B55269}</Project>
+      <Name>Xrm.Test1.RawData.E1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.RawDataCommon\Xrm.Test1.RawDataCommon.csproj">
+      <Project>{9B9D69CB-47C2-4417-AADC-84CCF3F129C3}</Project>
+      <Name>Xrm.Test1.RawDataCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xrm.Test1.Utils\Xrm.Test1.Utils.csproj">
+      <Project>{1A162860-D328-447B-8BA0-716DCFE17B2F}</Project>
+      <Name>Xrm.Test1.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B605ADD-7D83-4399-8B08-A5455416B4AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xrm.Test1.DataModel</RootNamespace>
+    <AssemblyName>Xrm.Test1.DataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dictionary\Common\DictionaryHelper.cs" />
+    <Compile Include="Dictionary\Common\DictionaryIdTypeAttribute.cs" />
+    <Compile Include="Dictionary\Common\IDictionaryItem.cs" />
+    <Compile Include="Dictionary\ICity.cs" />
+    <Compile Include="Dictionary\IDictionaryType.cs" />
+    <Compile Include="Dictionary\IDistrict.cs" />
+    <Compile Include="Dictionary\IEducation.cs" />
+    <Compile Include="Dictionary\IExperienceLength.cs" />
+    <Compile Include="Dictionary\IMaritalStatus.cs" />
+    <Compile Include="Dictionary\IRubric.cs" />
+    <Compile Include="Dictionary\IRubricSpeciality.cs" />
+    <Compile Include="Dictionary\IScheduleWork.cs" />
+    <Compile Include="Dictionary\ISex.cs" />
+    <Compile Include="Dictionary\IWorkingType.cs" />
+    <Compile Include="Entity\IPerson.cs" />
+    <Compile Include="Entity\IResume.cs" />
+    <Compile Include="Factory\IDictionaryFactory.cs" />
+    <Compile Include="Factory\IPersonFactory.cs" />
+    <Compile Include="Factory\IResumeFactory.cs" />
+    <Compile Include="Factory\IResumeSourceInfoFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Common\IReadAcces.cs" />
+    <Compile Include="Repositories\Common\IWriteAcces.cs" />
+    <Compile Include="Repositories\IDictionaryReadRepository.cs" />
+    <Compile Include="Repositories\IDictionaryWriteRepository.cs" />
+    <Compile Include="Repositories\Common\IRootRepository.cs" />
+    <Compile Include="Repositories\IPersonReadRepository.cs" />
+    <Compile Include="Repositories\IPersonWriteRepository.cs" />
+    <Compile Include="Repositories\IResumeReadRepository.cs" />
+    <Compile Include="Repositories\IResumeSourceInfoReadRepository.cs" />
+    <Compile Include="Repositories\IResumeSourceInfoWriteRepository.cs" />
+    <Compile Include="Repositories\IResumeWriteRepository.cs" />
+    <Compile Include="Dictionary\IResumeSource.cs" />
+    <Compile Include="ResumeSource\IResumeSourceInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
