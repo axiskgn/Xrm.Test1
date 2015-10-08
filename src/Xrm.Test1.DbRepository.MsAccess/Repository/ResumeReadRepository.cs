@@ -143,9 +143,9 @@ namespace Xrm.Test1.DbRepository.MsAccess.Repository
                             specialitiesResumeList.ContainsKey(id)
                                 ? specialitiesResumeList[id]
                                 : new List<IRubricSpeciality>(),
-                            scheduleWorkList.First(t => t.Id == scheduleWork),
-                            workingTypeList.First(t => t.Id == workingType),
-                            cityList.First(t => t.Id == city));
+                            scheduleWorkList.FirstOrDefault(t => t.Id == scheduleWork),
+                            workingTypeList.FirstOrDefault(t => t.Id == workingType),
+                            cityList.FirstOrDefault(t => t.Id == city));
 
                         result.Add(obj);
                     }

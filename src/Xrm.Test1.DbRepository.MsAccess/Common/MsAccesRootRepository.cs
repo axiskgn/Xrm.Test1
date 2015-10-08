@@ -79,8 +79,6 @@ namespace Xrm.Test1.DbRepository.MsAccess.Common
                     new ResumeReadRepository(connection, ra.DictionaryRepository, ra.PersonRepository,
                         ra.ResumeSourceInfo, _resumeFactory));
 
-
-
             _repositoryWriteCollection.Add(typeof (IDictionaryWriteRepository),
                 (connection, wa) => new DictionaryRepository(connection, _dictionaryFactory));
 

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseJsonConverter\ItemRaw.cs" />
+    <Compile Include="BaseJsonConverter\JsonObjects2.cs" />
     <Compile Include="BaseJsonConverter\ResumeRaw.cs" />
     <Compile Include="Common\IJsonConverter.cs" />
     <Compile Include="E1RawDataSources.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using System.Linq;
 using Xrm.Test1.DataModel.Dictionary;
 using Xrm.Test1.DataModel.Entity;
 using Xrm.Test1.DataModel.Factory;
@@ -42,7 +43,7 @@ namespace Xrm.Test1.DbRepository.MsAccess.Repository
                 cmd.CommandText = "SELECT @@IDENTITY";
                 newId = (int) cmd.ExecuteScalar();
 
-                foreach (var photo in photos)
+                foreach (var photo in photos.Where(t=>!string.IsNullOrEmpty(t)))
                 {
                     using (var cmdP = new OleDbCommand(
                             "INSERT INTO PersonPhotos (idPerson, photoLink) VALUES (@idPerson, @photoLink)", _connection))

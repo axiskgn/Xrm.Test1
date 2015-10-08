@@ -66,9 +66,15 @@ namespace Xrm.Test1.DbRepository.MsAccess.Repository
                         var isDriver = (bool) dr["isDriver"];
                         var maritialStatus = (int) dr["maritialStatus"];
 
+                        var photos = new List<string>();
+                        if (photoList.ContainsKey(id))
+                        {
+                            photos = photoList[id];
+                        }
+
                         result.Add(_personFactory.CreateEntity(id, fio, birthday,
                             sexItems.FirstOrDefault(t => t.Id == sex),
-                            photoList[id], isSmoke, isDriver,
+                            photos, isSmoke, isDriver,
                             maritialStatusItems.FirstOrDefault(t => t.Id == maritialStatus)));
                     }
                 }

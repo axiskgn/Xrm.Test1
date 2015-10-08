@@ -149,10 +149,15 @@ namespace Xrm.Test1.Merge.SimpleEngine
                                    wa.DictionaryRepository.Insert<IWorkingType>(
                                        resumeRaw.WorkingType.Name);
 
-                    var city = ra.DictionaryRepository.GetAll<ICity>()
-                        .FirstOrDefault(t => t.Name == resumeRaw.City.Name) ??
-                                   wa.DictionaryRepository.Insert<ICity>(
-                                       resumeRaw.City.Name);
+                    ICity city = null;
+
+                    if (!string.IsNullOrEmpty(resumeRaw.City.Name))
+                    {
+                        city = ra.DictionaryRepository.GetAll<ICity>()
+                            .FirstOrDefault(t => t.Name == resumeRaw.City.Name) ??
+                               wa.DictionaryRepository.Insert<ICity>(
+                                   resumeRaw.City.Name);
+                    }
 
                     resume = wa.ResumeRepository.Insert(person, resumeRaw.Header, resumeRaw.AddDate, resumeRaw.EditDate,
                         districts, resumeRaw.WantedSalaryRub, education, resumeRaw.EducationDescription,
@@ -163,7 +168,7 @@ namespace Xrm.Test1.Merge.SimpleEngine
                 }
             }
 
-            if (!person.Photos.Contains(resume.PhotoLink))
+            if (!string.IsNullOrEmpty(resume.PhotoLink) && !person.Photos.Contains(resume.PhotoLink))
             {
                 using (var wa = _rootRepository.GetWriteAcces())
                 {

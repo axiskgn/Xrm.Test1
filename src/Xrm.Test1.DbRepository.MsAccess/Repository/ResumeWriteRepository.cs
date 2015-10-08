@@ -47,12 +47,18 @@ experienceLength, resumeSourceInfo, experience, personalQualities, photoLink, ru
                 cmd.Parameters.Add("@resumeSourceInfo", OleDbType.Integer).Value = resumeSourceInfo.Id;
                 cmd.Parameters.Add("@experience", OleDbType.VarChar).Value = experience;
                 cmd.Parameters.Add("@personalQualities", OleDbType.VarChar).Value = personalQualities;
-                cmd.Parameters.Add("@photoLink", OleDbType.VarChar).Value = photoLink;
+                cmd.Parameters.Add("@photoLink", OleDbType.VarChar).Value = photoLink??string.Empty;
                 cmd.Parameters.Add("@rubric", OleDbType.Integer).Value = rubric.Id;
                 cmd.Parameters.Add("@scheduleWork", OleDbType.Integer).Value = scheduleWork.Id;
                 cmd.Parameters.Add("@workingType", OleDbType.Integer).Value = workingType.Id;
-                cmd.Parameters.Add("@city", OleDbType.Integer).Value = city.Id;
-
+                if (city != null)
+                {
+                    cmd.Parameters.Add("@city", OleDbType.Integer).Value = city.Id;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@city", OleDbType.Integer).Value = 0;
+                }
                 cmd.ExecuteNonQuery();
 
                 cmd.CommandText = "SELECT @@IDENTITY";

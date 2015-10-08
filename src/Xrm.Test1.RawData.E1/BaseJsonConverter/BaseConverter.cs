@@ -14,8 +14,8 @@ namespace Xrm.Test1.RawData.E1.BaseJsonConverter
         {
             try
             {
-                var tmp = new DataContractJsonSerializer(typeof(RootObject));
-                var tmpObj = tmp.ReadObject(stream)as RootObject;
+                var tmp = new DataContractJsonSerializer(typeof(BaseJsonConverter2.RootObject));
+                var tmpObj = tmp.ReadObject(stream)as BaseJsonConverter2.RootObject;
 
                 if (tmpObj != null)
                 {
@@ -35,7 +35,7 @@ namespace Xrm.Test1.RawData.E1.BaseJsonConverter
             return new List<IResumeRaw>();
         }
 
-        private IResumeRaw ConvertResume(Resume data)
+        private IResumeRaw ConvertResume(BaseJsonConverter2.Resume data)
         {
             //&quot
             var result = new ResumeRaw();
@@ -58,19 +58,16 @@ namespace Xrm.Test1.RawData.E1.BaseJsonConverter
                 data.districts.Select(t => new ItemRaw {Id = t.id, Name = t.title}).Cast<IItemRaw>().ToList();
 
             int sum;
-            if (!int.TryParse(data.wanted_salary_rub, out sum))
+
+            if (data.wanted_salary_rub != null)
             {
-                // для дробных чисел (видимо указано в валюте)
-                double fakeSum;
-                if (double.TryParse(data.wanted_salary_rub, out fakeSum))
-                {
-                    sum = (int) fakeSum;
-                }
-                else
-                {
-                    sum = 0;
-                }
+                sum = data.wanted_salary_rub.Value;
             }
+            else
+            {
+                sum = 0;
+            }
+
 
             result.WantedSalaryRub = sum;
             result.Education = data.education != null
